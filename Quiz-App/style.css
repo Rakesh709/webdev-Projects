@@ -48,11 +48,15 @@ body{
     cursor: pointer;
     transition: all 0.3s;
 }
-.btn:hover{
+.btn:hove:not([disabled]){
     background: #222;
     color: #fff;
 }
 
+/* to disabled the other click function */
+.btn:disabled{
+    cursor: no-drop;
+}
 #next-btn{
     background: #001e4d;
     color: #fff;
