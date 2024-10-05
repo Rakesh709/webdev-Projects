@@ -3,7 +3,7 @@ let userInput = document.getElementById("date");
 userInput.max = new Date().toISOString().split("T")[0];
 
 let dob= document.getElementById("dod");
-console.log(dob);
+//console.log(dob);
 
 let result = document.getElementById("result");
 
@@ -55,6 +55,7 @@ function getDatInMonth(year,month){
     return new Date(year,month,0).getDate();
 }
 
-dob.addEventListener("click",()=>{
+dob.addEventListener("click",function(){
+    
     calculate()
 })
