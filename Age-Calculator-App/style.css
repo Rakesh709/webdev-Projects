@@ -70,3 +70,11 @@
     background-size: 30px;
     cursor: pointer;
 }
+
+#result{
+    font-size: 23px;
+}
+
+#result span{
+    color: #ffff76;
+}
