@@ -22,12 +22,20 @@
             <h1>Despacito</h1>
             <p>Lusi rakesh </p>
 
-            <audio controls>
+            <audio  id="song">
                 <source src="images/Chasing - NEFFEX.mp3" type="audio/mp3">
             </audio>
+            <input type="range" value="0" id="progress">
+            <!-- Volume Control -->
+            <!-- <label for="volume">Volume</label>
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="1"> -->
 
-            <input type="range" value="0" is="progress">
-
+            <div class="controls">
+                <div><i class="fa-solid fa-backward"></i></div>
+                <div id="play"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
+                <div><i class="fa-solid fa-forward"></i></div>
+            </div>
+            
         </div>
    </div>
     
