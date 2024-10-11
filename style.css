@@ -67,3 +67,22 @@ h2 {
 .card a:active {
     color: #ff5c5c;
 }
+
+
+/* Footer styles */
+footer {
+    text-align: center;
+    margin-top: 200px;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+}
+
+footer .heart {
+    color: #ff5c5c;
+}
+
+footer p {
+    margin: 5px 0;
+}
