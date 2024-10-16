@@ -1,7 +1,7 @@
 const password = document.getElementById("password")
 const message = document.getElementById("message")
 const strenght = document.getElementById("strenght")
-
+const copy = document.getElementById("copy")
 
 password.addEventListener("input",()=>{
     if(password.value.length>0){
@@ -16,7 +16,7 @@ password.addEventListener("input",()=>{
         message.style.color="#ff5925"
     }else if(password.value.length>=4 && password.value.length<8){
         strenght.innerHTML="medium"
-        password.style.borderColor="#yellow"
+        password.style.borderColor="yellow"
         message.style.color="yellow"
     }else if(password.value.length>=8){
         strenght.innerHTML="strong"
@@ -24,4 +24,10 @@ password.addEventListener("input",()=>{
         message.style.color="#26d730"
     }
 
+})
+
+
+copy.addEventListener("click",()=>{
+    password.select();
+    navigator.clipboard.writeText(password.value)
 })
