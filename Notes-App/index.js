@@ -15,14 +15,39 @@ function updateStorage(){
 }
 
 
+function startTimer(timerBox) {
+    let startTime = new Date(); 
+    setInterval(() => {
+        let elapsedTime = new Date() - startTime;
+        let seconds = Math.floor(elapsedTime / 1000) % 60;
+        let minutes = Math.floor(elapsedTime / 1000 / 60) % 60;
+        let hours = Math.floor(elapsedTime / 1000 / 60 / 60);
+
+        // Update the timerBox text content with elapsed time
+        timerBox.textContent = `Time: ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000); // update every second
+}
+
+
 
 createBtn.addEventListener("click",()=>{
     let inputBox= document.createElement("p");
+    let timerBox= document.createElement("p")
     let img = document.createElement("img")
+    let timerImg = document.createElement("img")
     inputBox.className="input-box"
+    timerBox.className="timer-box"
     inputBox.setAttribute("contenteditable","true")
     img.src="images/delete.png";
-    noteContainer.appendChild(inputBox).appendChild(img)
+    timerImg.src="images/clock.png"
+    noteContainer.appendChild(inputBox).appendChild(img);
+
+    // Append timer box and timer image
+    noteContainer.appendChild(timerBox).appendChild(timerImg);
+    startTimer(timerBox);
+    
+    
+    updateStorage();
 })
 
 noteContainer.addEventListener("click",(e)=>{
@@ -45,3 +70,5 @@ document.addEventListener("keydown",event=>{
         event.preventDefault();
     }
 })
+
+
