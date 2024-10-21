@@ -49,11 +49,10 @@ createBtn.addEventListener("click",()=>{
 function startTimer() {
     let startTime = new Date(); 
 
-    let hour=startTime.getHours();
-    let minutes= startTime.getMinutes();
-    let seconds = startTime.getSeconds();
+    let currentTime = startTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+    
 
-    return `Task created at  ${hour} : ${minutes} : ${seconds}`
+    return `Task created at ${currentTime}`
 }
 
 
