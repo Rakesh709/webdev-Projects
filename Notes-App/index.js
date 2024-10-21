@@ -15,18 +15,6 @@ function updateStorage(){
 }
 
 
-function startTimer(timerBox) {
-    let startTime = new Date(); 
-    setInterval(() => {
-        let elapsedTime = new Date() - startTime;
-        let seconds = Math.floor(elapsedTime / 1000) % 60;
-        let minutes = Math.floor(elapsedTime / 1000 / 60) % 60;
-        let hours = Math.floor(elapsedTime / 1000 / 60 / 60);
-
-        // Update the timerBox text content with elapsed time
-        timerBox.textContent = `Time: ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000); // update every second
-}
 
 
 
@@ -34,21 +22,40 @@ createBtn.addEventListener("click",()=>{
     let inputBox= document.createElement("p");
     let timerBox= document.createElement("p")
     let img = document.createElement("img")
-    let timerImg = document.createElement("img")
+    let clockImg = document.createElement("img")
+
+    let breaker = document.createElement("div")
+    breaker.className="dash-line"
+
     inputBox.className="input-box"
-    timerBox.className="timer-box"
+    timerBox.className = "timer-box"
+
     inputBox.setAttribute("contenteditable","true")
     img.src="images/delete.png";
-    timerImg.src="images/clock.png"
+    clockImg.src="images/clock.png"
+
+
     noteContainer.appendChild(inputBox).appendChild(img);
 
-    // Append timer box and timer image
-    noteContainer.appendChild(timerBox).appendChild(timerImg);
-    startTimer(timerBox);
-    
-    
+    let timeText = startTimer()
+    timerBox.textContent = timeText;
+
+    noteContainer.appendChild(timerBox).appendChild(clockImg)
+    noteContainer.appendChild(breaker)
+
     updateStorage();
 })
+
+function startTimer() {
+    let startTime = new Date(); 
+
+    let hour=startTime.getHours();
+    let minutes= startTime.getMinutes();
+    let seconds = startTime.getSeconds();
+
+    return `Task created at  ${hour} : ${minutes} : ${seconds}`
+}
+
 
 noteContainer.addEventListener("click",(e)=>{
     if(e.target.tagName==="IMG"){

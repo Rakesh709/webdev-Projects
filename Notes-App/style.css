@@ -84,3 +84,14 @@
     right: 15px;
     cursor: pointer;
 }
+
+
+.timer-box {
+    background: #fff;
+    color: #333;
+}
+
+.dash-line{
+    border: 2px dashed #fff;
+    width: 500px;
+}
