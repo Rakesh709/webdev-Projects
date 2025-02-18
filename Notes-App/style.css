@@ -63,3 +63,35 @@
     right: 15px;
     cursor: pointer;
 }
+
+.timer-box{
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    min-height: 10px;
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    margin: 20px 0;
+    outline: none;
+    border-radius: 5px;
+}
+
+.timer-box img{
+    width: 25px;
+    position: absolute;
+    bottom: 8px;
+    right: 15px;
+    cursor: pointer;
+}
+
+
+.timer-box {
+    background: #fff;
+    color: #333;
+}
+
+.dash-line{
+    border: 2px dashed #fff;
+    width: 500px;
+}

@@ -16,14 +16,45 @@ function updateStorage(){
 
 
 
+
+
 createBtn.addEventListener("click",()=>{
     let inputBox= document.createElement("p");
+    let timerBox= document.createElement("p")
     let img = document.createElement("img")
+    let clockImg = document.createElement("img")
+
+    let breaker = document.createElement("div")
+    breaker.className="dash-line"
+
     inputBox.className="input-box"
+    timerBox.className = "timer-box"
+
     inputBox.setAttribute("contenteditable","true")
     img.src="images/delete.png";
-    noteContainer.appendChild(inputBox).appendChild(img)
+    clockImg.src="images/clock.png"
+
+
+    noteContainer.appendChild(inputBox).appendChild(img);
+
+    let timeText = startTimer()
+    timerBox.textContent = timeText;
+
+    noteContainer.appendChild(timerBox).appendChild(clockImg)
+    noteContainer.appendChild(breaker)
+
+    updateStorage();
 })
+
+function startTimer() {
+    let startTime = new Date(); 
+
+    let currentTime = startTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+    
+
+    return `Task created at ${currentTime}`
+}
+
 
 noteContainer.addEventListener("click",(e)=>{
     if(e.target.tagName==="IMG"){
@@ -45,3 +76,5 @@ document.addEventListener("keydown",event=>{
         event.preventDefault();
     }
 })
+
+
